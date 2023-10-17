@@ -1,31 +1,33 @@
-# Tyréns testuppgift
+# TyrÃ©ns testuppgift
 
 ## Krav
 
-I de muntliga kraven framgick att testuppgiften ska simulera ett system som anropar Mahirs beräkningsmodul. Beräkningarn kan ta lång tid att färdigställa och användren ska få feedback att jobbet mottagits och en notifikation när jobbet är färdigt.
+I de muntliga kraven framgick att testuppgiften ska simulera ett system som anropar Mahirs berÃ¤kningsmodul. BerÃ¤kningarn kan ta lÃ¥ng tid att fÃ¤rdigstÃ¤lla och anvÃ¤ndren ska fÃ¥ feedback att jobbet mottagits och en notifikation nÃ¤r jobbet Ã¤r fÃ¤rdigt.
 
 Antagande
-- inparametrar: User (för att authentisera, ), InputFolder (innehållande json-filer, excel mm) och WebhookUrl (gör en httppost mot denna url med jobId när jobbet är färdigt).
+- inparametrar: User (fÃ¶r att authentisera, ), InputFolder (innehÃ¥llande json-filer, excel mm) och WebhookUrl (gÃ¶r en httppost mot denna url med jobId nÃ¤r jobbet Ã¤r fÃ¤rdigt).
 - utparametrar: outputFolder (med pdf mm)
-- en endpoint, mahirs beräkningsmodul sköter orkestreringen.
+- en endpoint, mahirs berÃ¤kningsmodul skÃ¶ter orkestreringen.
 
 > Mahir:
 >  
 > Jag vill ha en en json fil. Sen levererar jag typiskt en rapport (pdf).
-> Men i förlängningen kommer det att bli olika kombinationer av:
+> Men i fÃ¶rlÃ¤ngningen kommer det att bli olika kombinationer av:
 >
 > In:
 > - En json fil
-> - En mapp med en eller flera json eller excel filer och en eller flera figurer som beskriver förutsättningar och indata till beräkningen
+> - En mapp med en eller flera json eller excel filer och en eller flera figurer som beskriver fÃ¶rutsÃ¤ttningar och indata till berÃ¤kningen
 > 
 > Ut:
-> - Något som kan visas via en URL med en presentation av delar av eller hela resultatet
+> - NÃ¥got som kan visas via en URL med en presentation av delar av eller hela resultatet
 > - En mapp med filer
 > - En komplett rapport (pdf).
 >
-> Troligen kommer olika applikationer att få lite olika behov och olika processer kommer att växa fram. Ofta är det praktiskt att jag orkestrerar. Speciellt för fall där allt finns tillgängligt i RAM. Andra fall kanske förutsätter kommunikation mellan olika källor av data och då kan det vara mer effektivt att ha skilda processer och en orkestrering ”utifrån”…
+> Troligen kommer olika applikationer att fÃ¥ lite olika behov och olika processer kommer att vÃ¤xa fram. Ofta Ã¤r det praktiskt att jag orkestrerar. Speciellt fÃ¶r fall dÃ¤r allt finns tillgÃ¤ngligt i RAM. Andra fall kanske fÃ¶rutsÃ¤tter kommunikation mellan olika kÃ¤llor av data och dÃ¥ kan det vara mer effektivt att ha skilda processer och en orkestrering â€utifrÃ¥nâ€â€¦
 
-## Länkar
+## LÃ¤nkar
+
+[Site fÃ¶r att testa webhook post online](https://webhook.site/)
 
 [Blog Asynchronous Messaging](https://blog.stephencleary.com/2021/01/asynchronous-messaging-1-basic-distributed-architecture.html)
 
@@ -33,5 +35,5 @@ Antagande
 
 ## Framtida teknisk utveckling
 
-- Använd en permanent message queue som RabbitMQ
-- Använd en Consumer med en Mediator för att bryta ut körningen av beräkningar till egen Handler-klass. Separerar affärslogiken på ett tydligt sätt.
+- AnvÃ¤nd en permanent message queue som RabbitMQ
+- AnvÃ¤nd en Consumer med en Mediator fÃ¶r att bryta ut kÃ¶rningen av berÃ¤kningar till egen Handler-klass. Separerar affÃ¤rslogiken pÃ¥ ett tydligt sÃ¤tt.
